@@ -206,7 +206,6 @@ public class Terminal {
                             System.out.println("Cliente ja possui uma locacao ativa.");
                         }
                     }
-
                     break;
 
                 case 2:
