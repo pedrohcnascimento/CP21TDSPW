@@ -117,7 +117,8 @@ public class Terminal {
                     "\n Digite o número da opção desejada:\n" +
                     "\n 1) Alugar Veículo" +
                     "\n 2) Devolver veículo" +
-                    "\n 3) Sair"));
+                    "\n 3) Mostrar informações de todos os clientes" +
+                    "\n 4) Sair"));
 
             if (locador01.equals(gabriel.getCpf()) && gabriel.isPossuiLocacaoAtiva() && opcao == 1) {
                 JOptionPane.showMessageDialog(null, "Você já possui um veículo alugado!");
@@ -234,9 +235,20 @@ public class Terminal {
                     }
                     break;
                 case 3:
+                    JOptionPane.showMessageDialog(null, "Informações de todos os clientes:\n\n" +
+                            "Cliente 1:\n" +
+                            "Nome: " + gabriel.getNome() + "\n" +
+                            "CPF: " + gabriel.getCpf() + "\n" +
+                            "Telefone: " + gabriel.getTelefone() + "\n\n" +
+                            "Cliente 2:\n" +
+                            "Nome: " + murillo.getNome() + "\n" +
+                            "CPF: " + murillo.getCpf() + "\n" +
+                            "Telefone: " + murillo.getTelefone());
+                    break;
+                case 4:
                     JOptionPane.showMessageDialog(null, "Encerrando o sistema.");
                     break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 }
