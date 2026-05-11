@@ -5,6 +5,7 @@ import br.com.fiap.tdspw.model.Locacao;
 import br.com.fiap.tdspw.model.Veiculo;
 
 import javax.swing.*;
+import java.time.LocalDate;
 
 public class Terminal {
     public static void main(String[] args) {
@@ -131,7 +132,7 @@ public class Terminal {
             // Verificação de disponibilidade e escolha do veículo
             switch (opcao) {
                 case 1:
-                    if (veiculo01.verificarDisponibilidade() == true && veiculo02.verificarDisponibilidade() == true) {
+                    if (veiculo01.isDisponivel() && veiculo02.isDisponivel()) {
                         veiculoSelecionado = JOptionPane.showInputDialog("Pois bem, digite a placa do veículo que você deseja alugar:" +
                                 "\n --> Placa: " + veiculo01.getPlacaVeiculo() +
                                 "\n -> Modelo: " + veiculo01.getModeloVeiculo() +
@@ -141,13 +142,13 @@ public class Terminal {
                                 "\n -> Modelo: " + veiculo02.getModeloVeiculo() +
                                 "\n -> Marca: " + veiculo02.getMarcaVeiculo() +
                                 "\n -> Ano: " + veiculo02.getAnoVeiculo());
-                    } else if (veiculo01.verificarDisponibilidade() == true && veiculo02.verificarDisponibilidade() == false) {
-                        veiculoSelecionado = JOptionPane.showInputDialog("Pois bem, digite a placa do veículo que você deseja alugar:" +
+                    } else if (veiculo01.isDisponivel() && !veiculo02.isDisponivel()) {
+                        veiculoSelecionado = JOptionPane.showInputDialog("Pois bem, digite a placa do veículo que você deseja devolver:" +
                                 "\n --> Placa: " + veiculo01.getPlacaVeiculo() +
                                 "\n -> Modelo: " + veiculo01.getModeloVeiculo() +
                                 "\n -> Marca: " + veiculo01.getMarcaVeiculo() +
                                 "\n -> Ano: " + veiculo01.getAnoVeiculo());
-                    } else if (veiculo01.verificarDisponibilidade() == false && veiculo02.verificarDisponibilidade() == true) {
+                    } else if (veiculo02.isDisponivel() && !veiculo01.isDisponivel()) {
                         veiculoSelecionado = JOptionPane.showInputDialog("Pois bem, digite a placa do veículo que você deseja alugar:" +
                                 "\n --> Placa: " + veiculo02.getPlacaVeiculo() +
                                 "\n -> Modelo: " + veiculo02.getModeloVeiculo() +
@@ -223,10 +224,10 @@ public class Terminal {
                     break;
                 case 2:
                     if (locador01.equals(gabriel.getCpf()) && gabriel.isPossuiLocacaoAtiva() && locacao01.getCliente() == gabriel) {
-                        locacao01.finalizarLocacao();
+                        locacao01.finalizarLocacao(LocalDate.now().toString());
                         JOptionPane.showMessageDialog(null, "Seu veículo foi devolvido com sucesso!");
                     } else if (locador01.equals(murillo.getCpf()) && murillo.isPossuiLocacaoAtiva() && locacao01.getCliente() == murillo) {
-                        locacao01.finalizarLocacao();
+                        locacao01.finalizarLocacao(LocalDate.now().toString());
                         JOptionPane.showMessageDialog(null, "Seu veículo foi devolvido com sucesso!");
                     } else if (locador01.equals(gabriel.getCpf()) && gabriel.isPossuiLocacaoAtiva() == false) {
                         JOptionPane.showMessageDialog(null, "Você não alugou nenhum veículo ainda!");

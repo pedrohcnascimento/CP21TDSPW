@@ -5,19 +5,7 @@ public class Veiculo {
     private String placaVeiculo;
     private String marcaVeiculo;
     private int anoVeiculo;
-    private boolean disponivelVeiculo = true;
-
-//    public Veiculo (String modeloVeiculo, String placaVeiculo, String marcaVeiculo, int anoVeiculo) {
-//        this.modeloVeiculo = modeloVeiculo;
-//        this.placaVeiculo = placaVeiculo;
-//        this.marcaVeiculo = marcaVeiculo;
-//        this.anoVeiculo = anoVeiculo;
-//        this.disponivelVeiculo = true;
-//    }
-
-    public boolean verificarDisponibilidade () {
-        return disponivelVeiculo;
-    }
+    private boolean disponivel = true;
 
     public String getModeloVeiculo() {
         return modeloVeiculo;
@@ -51,13 +39,15 @@ public class Veiculo {
         this.marcaVeiculo = marcaVeiculo;
     }
 
-    public boolean isDisponivelVeiculo() {
-        return disponivelVeiculo;
+    public boolean isDisponivel() {
+        return disponivel;
     }
 
-    public void setDisponivelVeiculo(boolean disponivelVeiculo) {
-        this.disponivelVeiculo = disponivelVeiculo;
+    public void alugar() {
+        this.disponivel = false;
     }
 
-
+    public void devolver() {
+        this.disponivel = true;
+    }
 }

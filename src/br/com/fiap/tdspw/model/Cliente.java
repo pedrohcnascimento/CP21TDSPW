@@ -7,14 +7,7 @@ public class Cliente {
 
     private boolean locacaoAtiva;
 
-    public Cliente(String nome, String cpf, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.locacaoAtiva = false;
-    }
-
-     public boolean podeAlugar() {
+    public boolean podeAlugar() {
         return !locacaoAtiva;
     }
 
@@ -26,19 +19,15 @@ public class Cliente {
         this.locacaoAtiva = false;
     }
 
+    public void registrarCliente() {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+    }
 
     public String getNome() {
         return nome;
     }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-}
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -61,16 +50,10 @@ public class Cliente {
     }
 
     public boolean isPossuiLocacaoAtiva() {
-        return possuiLocacaoAtiva;
+        return locacaoAtiva;
     }
 
     public void setPossuiLocacaoAtiva(boolean possuiLocacaoAtiva) {
-        this.possuiLocacaoAtiva = possuiLocacaoAtiva;
-    }
-
-    public void registrarCliente() {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
+        this.locacaoAtiva = possuiLocacaoAtiva;
     }
 }
